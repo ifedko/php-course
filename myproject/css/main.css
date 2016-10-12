@@ -1,0 +1,61 @@
+﻿/* GENERAL */
+html, body {
+	color: #343434;
+}
+
+/* PAGE STRUCTURE */
+.header, .content, .footer {
+	width: 1024px;
+	margin: 0px auto;
+	padding: 30px;
+	clear: both;
+}
+.header {
+	height: 100px;
+	border: 1px solid #c5c1cc;
+}
+.footer {
+	border: 1px solid #c5c1cc;
+}
+
+/* HEADER */
+.logo {
+	display: block;
+	float: left;
+	width: 100px;
+	margin: 0 10px;
+}
+.slogan-wrapper {
+	float: right;
+}
+.slogan-wrapper h1 {
+	color: #6436c1;
+}
+
+/* CONTENT */
+.content img {
+	display: block;
+	float: left;
+	width: 300px;
+	margin: 20px;
+	border-radius: 150px;
+}
+.menu {
+	float: left;
+	width: 15%;
+	padding: 30px 50px 30px 0;
+}
+.workarea {
+	float: left;
+	width: 60%;
+}
+.task-item {
+	padding: 10px;
+	margin: 10px;
+	width: 100%;
+	border: 1px solid #cccccc;
+}
+
+/* FOOTER */
+.footer {
+}
