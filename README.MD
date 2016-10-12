@@ -1,5 +1,5 @@
 # Tasks application
 
-Url for see task has format
+Url of task has format:
 
-```http://myproject.local/#section#-#tasknumber#```
+http://myproject.local/#section#-#tasknumber#
