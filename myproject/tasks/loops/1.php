@@ -8,6 +8,6 @@ function sayHelloWorld($count = 1)
 	return $result;
 }
 
-$description = 'asdfasdf';
-$inputData = 'a = 10, b = 20';
+$description = 'Вывести 10 раз Hello World.';
+$inputData = '$count = 10';
 $result = sayHelloWorld(10);
