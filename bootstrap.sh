@@ -61,8 +61,8 @@ sudo apt-get -y install phpmyadmin
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
     ServerName ${PROJECT_NAME}.local
-    DocumentRoot "/var/www/html/${PROJECT_NAME}"
-    <Directory "/var/www/html/${PROJECT_NAME}">
+    DocumentRoot "/var/www/html/public"
+    <Directory "/var/www/html/public">
         AllowOverride All
         Require all granted
     </Directory>
@@ -87,5 +87,5 @@ curl --silent https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
 echo "--- Update project components ---"
-cd /var/www/html/${PROJECT_NAME}
+cd /var/www/html/public
 #sudo -u vagrant -H sh -c "composer install"

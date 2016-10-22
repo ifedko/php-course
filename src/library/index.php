@@ -20,6 +20,12 @@ function getTasksMap ()
 			'tasks' => [
 				1
 			]
+		],
+		'mysql' => [
+			'title' => 'MySQL',
+			'tasks' => [
+				1
+			]
 		]
 	];
 }

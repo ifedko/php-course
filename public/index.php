@@ -1,6 +1,6 @@
 <?php
 // include library of functions
-require_once __DIR__ . '/library/index.php';
+require_once __DIR__ . '/../src/library/index.php';
 
 // determine page code to handle action
 $pageCode = 'index';
@@ -30,18 +30,18 @@ switch ($pageCode) {
 }
 
 // get path to view to include it in content area of page.
-$pathToView = __DIR__ . '/view/pages/' . $pageCode . '.php';
+$pathToView = __DIR__ . '/../src/view/pages/' . $pageCode . '.php';
 if (!file_exists($pathToView)) {
 	// if view file doesn't exist, we set 404 view file.
 	$pageCode = '404';
-	$pathToView = __DIR__ . '/view/pages/' . $pageCode . '.php';
+	$pathToView = __DIR__ . '/../src/view/pages/' . $pageCode . '.php';
 }
 ?>
-<?php require 'view/header.php'; ?>
+<?php require __DIR__ . '/../src/view/header.php'; ?>
 <div class="content">
-	<?php require 'view/menu.php'; ?>
+	<?php require __DIR__ . '/../src/view/menu.php'; ?>
 	<div class="workarea">
 		<?php require $pathToView; ?>
 	</div>
 </div>
-<?php require 'view/footer.php'; ?>
+<?php require __DIR__ . '/../src/view/footer.php'; ?>
