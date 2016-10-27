@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . '/../classes/Task.php';
+
 // We declare library functions here
 
 /**
@@ -57,13 +60,17 @@ function getTaskTitle($section, $taskNumber)
 function getTask($section, $taskNumber)
 {
 	$tasksMap = getTasksMap();
-	$title = getTaskTitle($section, $taskNumber);
-	require __DIR__ . '/../tasks/' . $section . '/' . $taskNumber . '.php';
+	$pageTitle = getTaskTitle($section, $taskNumber);
+	$description = ''; // @todo get description from tasksMap
+	$categoryCode = $section;
+	$task = new Task($taskNumber, $categoryCode, $description);
+	$inputData = [];
+	$result = $task->run($inputData);
 	
 	return [
-		'title' => $title,
-		'description' => $description,
-		'inputData' => $inputData,
+		'title' => $pageTitle,
+		'description' => $task->getDescription(),
+		'inputData' => '',
 		'result' => $result
 	];
 }

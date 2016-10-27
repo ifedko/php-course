@@ -8,6 +8,12 @@ function sayHelloWorld($count = 1)
 	return $result;
 }
 
-$description = 'Вывести 1 раз Hello World.';
-$inputData = '$count = 1';
-$result = sayHelloWorld(1);
+function taskFunction(array $data)
+{
+	$countRows = (isset($data['count_rows'])) ? $data['count_rows'] : 5;
+	return sayHelloWorld($countRows);
+}
+
+// $description = 'Вывести 1 раз Hello World.';
+// $inputData = '$count = 1';
+// $result = sayHelloWorld(1);
