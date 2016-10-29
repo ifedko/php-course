@@ -28,9 +28,9 @@ class Task
 		return $this->description;
 	}
 
-	public function run($data)
+	public function run($data, $dbConnection)
 	{
 		require_once __DIR__ . '/../tasks/' . $this->category . '/' . $this->title . '.php';
-		return taskFunction($data);
+		return taskFunction($data, $dbConnection);
 	}
 }

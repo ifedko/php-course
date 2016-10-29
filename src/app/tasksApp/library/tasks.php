@@ -1,10 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../classes/Task.php';
-require_once __DIR__ . '/../classes/Config.php';
-
-// We declare library functions here
-
 /**
  * Get map of tasks by section and task number
  * @return array
@@ -58,7 +53,7 @@ function getTaskTitle($section, $taskNumber)
  * @param integer $taskNumber
  * @return array
  */
-function getTask($section, $taskNumber)
+function getTask($section, $taskNumber, $dbConnection)
 {
 	$tasksMap = getTasksMap();
 	$pageTitle = getTaskTitle($section, $taskNumber);
@@ -66,7 +61,7 @@ function getTask($section, $taskNumber)
 	$categoryCode = $section;
 	$task = new Task($taskNumber, $categoryCode, $description);
 	$inputData = [];
-	$result = $task->run($inputData);
+	$result = $task->run($inputData, $dbConnection);
 	
 	return [
 		'title' => $pageTitle,
