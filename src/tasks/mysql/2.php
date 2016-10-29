@@ -1,21 +1,34 @@
 <?php
-// some code
-try {
-	$dsn = 'mysql:host=localhost;dbname=publications';
-	$username = 'ifedko';
-	$password = 'ifedko';
-	$db = new PDO($dsn, $username, $password);
-	$statement = $db->query('SELECT * FROM classics');
-	$statement->setFetchMode(PDO::FETCH_ASSOC);
-	$rows = $statement->fetchAll();
-	var_dump($rows);
-} catch (PDOException $exception) {
-	echo 'Error! Message: ' . $exception->getMessage()
-		. ' Code: ' . $exception->getCode();
+
+function createDbConnection($dbParameters)
+{
+	try {
+		$dsn = $dbParameters['dsn'];
+		$username = $dbParameters['username'];
+		$password = $dbParameters['password'];
+
+		$dbConnection = new PDO($dsn, $username, $password);
+	} catch (PDOException $exception) {
+		return null;
+	}
+	return $dbConnection;
 }
 
-// some code
+function getClassics($dbConnection)
+{
+	$statement = $dbConnection->query('SELECT * FROM classics');
+	$statement->setFetchMode(PDO::FETCH_ASSOC);
+	$rows = $statement->fetchAll();
+	return var_export($rows, true);
+}
 
-$description = '';
-$inputData = '';
-$result = '';
+
+function taskFunction($data)
+{
+	$pathToConfig = __DIR__ . '/../../config/config.php';
+	$config = new Config($pathToConfig);
+	$dbParameters = $config->get('db');
+	$dbConnection = createDbConnection($dbParameters);
+	$classics = getClassics($dbConnection);
+	return $classics;
+}

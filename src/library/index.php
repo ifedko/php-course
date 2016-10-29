@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../classes/Task.php';
+require_once __DIR__ . '/../classes/Config.php';
 
 // We declare library functions here
 
