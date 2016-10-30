@@ -2,9 +2,9 @@
 
 $config = [
 	'db' => [
-		'dsn' => 'mysql:host=localhost;dbname=publications',
-		'username' => 'ifedko',
-		'password' => 'ifedko'
+		'dsn' => 'mysql:host=localhost;dbname=myproject',
+		'username' => 'vagrant',
+		'password' => 'vagrant'
 	],
 	'router' => [
 		'/' => [
@@ -14,6 +14,10 @@ $config = [
 		'/about' => [
 			'controller' => 'IndexController',
 			'action' => 'aboutAction'
+		],
+		'/contacts' => [
+			'controller' => 'IndexController',
+			'action' => 'contactsAction'
 		],
 		'/tasks/([a-zA-Z0-9]{1,})/([0-9]{1,})' => [
 			'controller' => 'TaskController',
