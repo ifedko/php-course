@@ -31,8 +31,8 @@ class Application
 		$parameters = !empty($controllerParameters['parameters']) ? $controllerParameters['parameters'] : [];
 		$request = array_merge($request, $parameters);
 
-        $controller = ControllerFactory::create($this, $controllerName, $action);
-        $controller->$action($request);
+		$controller = ControllerFactory::create($this, $controllerName, $action);
+		$controller->$action($request);
 	}
 
 	public function getView()

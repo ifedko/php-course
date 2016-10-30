@@ -21,11 +21,19 @@ class Router
 				unset($matchedParameters['parameters']);
 				if (!empty($parameters['parameters'])) {
 					foreach ($parameters['parameters'] as $i => $name) {
-						$matchedParameters['parameters'][$name] = (isset($matches[$i + 1])) ? $matches[$i + 1] : null;
+						$matchedParameters['parameters'][$name] = (isset($matches[$i + 1]))
+							? $matches[$i + 1]
+							: null;
 					}
 				}
 				break;
 			}
+		}
+		if (empty($matchedParameters)) {
+			$matchedParameters = [
+				'controller' => 'DefaultController',
+				'action' => 'NotFoundAction'
+			];
 		}
 		return $matchedParameters;
 	}
