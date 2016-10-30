@@ -31,6 +31,9 @@ class Task
 	public function run($data, $dbConnection)
 	{
 		require_once __DIR__ . '/../tasks/' . $this->category . '/' . $this->title . '.php';
-		return taskFunction($data, $dbConnection);
+		if (function_exists('taskFunction')) {
+			return taskFunction($data, $dbConnection);
+		}
+		return 'Implement function called taskFunction';
 	}
 }

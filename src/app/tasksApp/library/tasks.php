@@ -23,7 +23,13 @@ function getTasksMap ()
 		'mysql' => [
 			'title' => 'MySQL',
 			'tasks' => [
-				1
+				1, 2
+			]
+		],
+		'form' => [
+			'title' => 'Form',
+			'tasks' => [
+				1, 2
 			]
 		]
 	];
@@ -53,14 +59,13 @@ function getTaskTitle($section, $taskNumber)
  * @param integer $taskNumber
  * @return array
  */
-function getTask($section, $taskNumber, $dbConnection)
+function getTask($section, $taskNumber, $dbConnection, array $inputData = [])
 {
 	$tasksMap = getTasksMap();
 	$pageTitle = getTaskTitle($section, $taskNumber);
 	$description = ''; // @todo get description from tasksMap
 	$categoryCode = $section;
 	$task = new Task($taskNumber, $categoryCode, $description);
-	$inputData = [];
 	$result = $task->run($inputData, $dbConnection);
 	
 	return [
