@@ -5,7 +5,7 @@ PROJECT_NAME='myproject'
 DBUSER='vagrant'
 DBPASSWD='vagrant'
 DBNAME='myproject'
-DBDUMPSQL='/path/to/dump.sql'
+DBDUMPSQL='/var/www/html/src/app/migrations/publications.sql'
 php_config_file="/etc/php5/apache2/php.ini"
 
 # create project folder
