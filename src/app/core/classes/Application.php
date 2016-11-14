@@ -4,7 +4,7 @@ class Application
 {
 	protected $baseDir;
 	protected $config;
-	protected $dbConnection;
+	protected $container;
 	protected $router;
 	protected $view;
 
@@ -16,9 +16,9 @@ class Application
 	public function build($pathToConfig)
 	{
 		$this->config = new Config($pathToConfig);
-		$this->dbConnection = $this->createDbConnection();
 		$this->router = $this->createRouter();
 		$this->view = $this->createView();
+		$this->container = $this->createContainer();
 
 		return $this;
 	}
@@ -35,29 +35,26 @@ class Application
 		$controller->$action($request);
 	}
 
+	public function getConfig()
+	{
+		return $this->config;
+	}
+
+	public function getContainer()
+	{
+		return $this->container;
+	}
+
 	public function getView()
 	{
 		return $this->view;
 	}
 
-	public function getDbConnection()
+	public function createContainer()
 	{
-		return $this->dbConnection;
-	}
-
-	protected function createDbConnection()
-	{
-		$dbParameters = $this->config->get('db');
-		try {
-			$dsn = $dbParameters['dsn'];
-			$username = $dbParameters['username'];
-			$password = $dbParameters['password'];
-
-			$dbConnection = new PDO($dsn, $username, $password);
-		} catch (PDOException $exception) {
-			return null;
-		}
-		return $dbConnection;
+		$container = new Container();
+		$container->set('config', $this->config);
+		return $container;
 	}
 
 	protected function createRouter()

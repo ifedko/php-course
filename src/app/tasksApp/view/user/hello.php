@@ -1,0 +1,1 @@
+<h1>Hello, <?php echo $user['login']; ?>!</h1>

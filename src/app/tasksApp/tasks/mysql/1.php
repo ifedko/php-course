@@ -1,5 +1,5 @@
 <?php
-function createDbConnection($dbHostname, $dbUsername, $dbPassword, $database)
+function taskCreateDbConnection($dbHostname, $dbUsername, $dbPassword, $database)
 {
 	$mysqli = new mysqli($dbHostname, $dbUsername, $dbPassword, $database);
 	if (mysqli_connect_errno($mysqli)) {
@@ -28,7 +28,7 @@ function taskFunction($data)
 	$dbUsername = 'ifedko';
 	$dbPassword = 'ifedko';
 	$database = 'publications';
-	$dbConnection = createDbConnection($dbHostname, $dbUsername, $dbPassword, $database);
+	$dbConnection = taskCreateDbConnection($dbHostname, $dbUsername, $dbPassword, $database);
 	$result = getClassics($dbConnection);
 	return $result;
 }

@@ -72,6 +72,6 @@ function getTask($section, $taskNumber, $dbConnection, array $inputData = [])
 		'title' => $pageTitle,
 		'description' => $task->getDescription(),
 		'inputData' => '',
-		'result' => $result
+		'result' => var_export($result, true)
 	];
 }

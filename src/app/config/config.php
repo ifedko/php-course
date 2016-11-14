@@ -23,6 +23,10 @@ $config = [
 			'controller' => 'TaskController',
 			'action' => 'indexAction',
 			'parameters' => ['section', 'task']
+		],
+		'/login' => [
+			'controller' => 'UserController',
+			'action' => 'loginAction'
 		]
 	],
 	'path_to_views' => '/src/app/tasksApp/view/'

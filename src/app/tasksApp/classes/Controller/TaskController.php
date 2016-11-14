@@ -9,7 +9,7 @@ class TaskController extends Controller
 			$inputData = explode(PHP_EOL, $request['input_data']);
 			var_dump($inputData);
 		}
-		$dbConnection = $this->application->getDbConnection();
+		$dbConnection = $this->container->get('dbConnection');
 		$section = (!empty($request['section'])) ? $request['section'] : '';
 		$taskNumber = (!empty($request['task'])) ? $request['task'] : 0;
 		$pageData = getTask($section, $taskNumber, $dbConnection, $inputData);
